@@ -83,6 +83,12 @@ There is a full reference on adverbs and their uses here
 http://code.kx.com/q/ref/elements/#adverbs
 
 
+/ putting it together
+/ nr is a function to generate functions which compute values using newton rapshon method
+nr:{[fx;dfx;mi;x;x0]mi{[fx;dfx;xn]xn-fx[xn]%dfx xn}[fx x;dfx x]/x0}
+
+my_sqrt:nr[{[v;x](x*x)-v};{[v;x]2*x};100] / max 100 iterations
+my_sqrt[4;1.0]
 
 
 
