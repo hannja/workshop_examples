@@ -11,7 +11,7 @@ testing.labels:last test
 / x mininum function
 /xmin:`:./xminmax 2:(`xmin;2)
 / x min indices
-ximin:`:./xminmax 2:(`ximin;2);
+ximin:(`$"./",string[.z.o],"/xminmax") 2:(`ximin;2);
 / simple mode (voting used amongst k neighbors)
 mode:{u?max u:?[([]x);();`x;(count;`i)]}
 
@@ -30,6 +30,7 @@ knn:{[df;features;labels;k;data](mode labels ximin[k]@)each df[features;data]}
 edisto:{x{sum u*u:x-y}/:flip y}
 / euclidean distance calculated using dot(x,x)+dot(y,y)-2*dot(x,y) last one only one which takes much time
 edist2:{(wsum[y;y]-2*flip[y:"f"$y]$x)+\:x wsum x:"f"$x}
+
 
 / sklearn distance metrics are fast for small arrays, define a euclidean distance function here if running under python
 p)from pyq import K
