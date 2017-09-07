@@ -31,7 +31,7 @@ edisto:{x{sum u*u:x-y}/:flip y}
 / euclidean distance calculated using dot(x,x)+dot(y,y)-2*dot(x,y) last one only one which takes much time
 edist2:{(wsum[y;y]-2*flip[y:"f"$y]$x)+\:x wsum x:"f"$x}
 
-
+/
 / sklearn distance metrics are fast for small arrays, define a euclidean distance function here if running under python
 p)from pyq import K
 p)from sklearn.metrics import euclidean_distances
